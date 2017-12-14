@@ -1,0 +1,45 @@
+
+RewriteEngine On
+
+
+RewriteRule ^oops?$ error-page.html
+RewriteRule ^prijava?$ user-login.php
+RewriteRule ^registracija?$ register.php
+RewriteRule ^moj-profil?$ user_info.php
+RewriteRule ^odjava?$ user-logout.php
+RewriteRule ^korpa?$ shopping-cart.php
+RewriteRule ^početna?$ index.php
+RewriteRule ^o-nama?& about_us.php
+RewriteRule ^najčešća-pitanja?$ faq.php
+RewriteRule ^početna?$ index.php
+RewriteRule ^preuzimanje-fajlova?$ download.php
+RewriteRule ^o-nama?$ about_us.php
+RewriteRule ^kontaktirajte-nas?$ contact.php
+RewriteRule ^način-plaćanja?$ select_payment.php
+RewriteRule ^prijava/error-([^-]*)$ login.php?error=$1 [L]
+RewriteRule ^registracija/uspeh/([^/]*)$ registration_success.php?action=$1 [L]
+RewriteRule ^registracija/greška/([^/]*)$ register.php?error=$1 [L]
+RewriteRule ^mašine/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=machine&cat=$1&subcat=$2&brand=$3
+RewriteRule ^ručni-alati/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=handtool&cat=$1&subcat=$2&brand=$3
+RewriteRule ^pribor-za-mašine/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=accessories&cat=$1&subcat=$2&brand=$3
+RewriteRule ^htz-oprema/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=ptc&cat=$1&subcat=$2&brand=$3
+RewriteRule ^mašine/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=machine&cat=$1&subcat=$2&brand=$3&page=$4
+RewriteRule ^ručni-alat/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=handtool&cat=$1&subcat=$2&brand=$3&page=$4
+RewriteRule ^pribor-za-mašine/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=accessories&cat=$1&subcat=$2&brand=$3&page=$4
+RewriteRule ^htz-oprema/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ item-list.php?type=ptc&cat=$1&subcat=$2&brand=$3&page=$4
+RewriteRule ^mašine/detalji/([^/]*)$ item-details.php?type=machine&catalogue_number=$1 [L]
+RewriteRule ^ručni-alat/detalji/([^/]*)$ item-details.php?type=handtool&catalogue_number=$1 [L]
+RewriteRule ^pribor-za-mašine/detalji/([^/]*)$ item-details.php?type=accessories&catalogue_number=$1 [L]
+RewriteRule ^htz-oprema/detalji/([^/]*)$ item-details.php?type=ptc&catalogue_number=$1 [L]
+
+
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+</IfModule>
+
